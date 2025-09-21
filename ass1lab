@@ -1,0 +1,37 @@
+def main():
+    item_names = []
+    item_prices = []
+    running = True 
+    
+    
+    while running:
+        item_names = input("Enter a item name or (hit enter to quit): ").strip()
+        if item_names == "" : 
+            running = False
+        else:
+            while True:
+                try:
+                    item_prices = input("Enter a item price or (hit enter to quit): ").strip()
+                    if item_prices == "" :
+                        raise ValueError(f"Enter price for '{item_prices}' (between 0 and 200): ") 
+                     
+                    item_prices = float(item_prices)
+                    if 0 < item_prices <= 200:
+                        item_names.append(item_names)
+                        item_prices.append(item_prices)
+                        break 
+                    else:
+                        print("Please enter a price (between 0 and 200) ")
+                except ValueError:
+                    print("Invalid input. Please enter a numeric value.")
+                    
+    #Count number of items
+    if item_names:
+        print(f"total_items: {len(item_names)}")
+    #Calculate Average price (2 decimals)
+        print(f"average_price: {sum(item_prices)/len(total_items):.2f}")
+    #Show highest price and lowest price items
+        max_index = item_prices.index(max(item_prices))
+        min_index = item_prices.index(min(item_prices))
+        
+main()
